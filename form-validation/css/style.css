@@ -64,7 +64,8 @@ body {
 }
 
 .form-field input:focus {
-  outline: none;
+  outline: 0;
+  border-color: #007bff;
 }
 
 /* the border will turn red if there is no input. this will work when js is added */
