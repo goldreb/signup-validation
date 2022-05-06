@@ -125,20 +125,21 @@ const isBetween = (length, min, max) =>
 //confirm password field
 
 const checkConfirmPassword = () => {
-  let valid = false;
+    let valid = false;
+    // check confirm password
+    const confirmPassword = confirmPasswordEl.value.trim();
+    const password = passwordEl.value.trim();
 
-  const confirmPassword = confirmPasswordEl.value.trim();
-  const password = passwordEl.value.trim();
+    if (!isRequired(confirmPassword)) {
+        showError(confirmPasswordEl, 'Please enter the password again');
+    } else if (password !== confirmPassword) {
+        showError(confirmPasswordEl, 'The password does not match');
+    } else {
+        showSuccess(confirmPasswordEl);
+        valid = true;
+    }
 
-  if (!isRequired(confirmPassword)) {
-    showError(confirmPasswordEl, "Please enter the password again.");
-  } else if (password !== confirmPassword) {
-    showError(confirmPasswordEl, "Confirm password does not match!");
-  } else {
-    showSuccess(confirmPasswordEl);
-    valid = true;
-  }
-  return valid;
+    return valid;
 };
 
 // event delegation - by adding single event listener - this will prevent the lagging since there are alot of movement
