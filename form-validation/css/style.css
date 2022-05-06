@@ -1,0 +1,104 @@
+:root {
+  --error-color: #dc3545;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+}
+
+/* this * means apply to everything unless specifically change on each element */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: rgb(255, 255, 255);
+  padding: 1em;
+  border-radius: 5px;
+  /* offset-x  | offset-y | blu-radius | spread - radius | color*/
+  box-shadow: 1px 3px 10px rgba(61, 61, 61, 0.3);
+  width: 400px;
+}
+
+.form {
+  padding: 10px 30px;
+}
+
+.form h1 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-field {
+  margin-bottom: 5px;
+}
+
+.form-field label {
+  color: #777;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-field input {
+  border: solid 2px #f0f0f0;
+  border-radius: 3px;
+  display: block;
+  padding: 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.form-field input:focus {
+  outline: none;
+}
+
+/* the border will turn red if there is no input. this will work when js is added */
+.form-field.error input {
+  border-color: var(--error-color);
+}
+
+.form-field.success input {
+  border-color: var(--success-color);
+}
+
+.form-field small {
+  color: var(--error-color);
+}
+
+/* button */
+
+.btn {
+  width: 100%;
+  padding: 3%;
+  background-color: #007bff;
+  border: 1px solid #1747e6;
+  /* border-radius: 5px; */
+  color: #ffffff;
+  text-transform: uppercase;
+
+  /* box-shadow: 2px 2px 5px rgba(1, 27, 110, 0.322); */
+}
+
+.btn:hover {
+  background: #0069d9;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
