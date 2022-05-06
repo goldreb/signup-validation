@@ -36,6 +36,13 @@ const showSuccess = (input) => {
   error.textContent = "";
 };
 
+// this function return true if the input argument is empty
+const isRequired = (value) => (value === " " ? false : true);
+
+// this function return false if the lenght argument is not between the min and max argument
+const isBetween = (length, min, max) =>
+  length < min || length > max ? false : true;
+
 // validating the input field
 
 // username field
@@ -115,31 +122,25 @@ const isPasswordSecure = (password) => {
 
   return re.test(password);
 };
-// this function return true if the input argument is empty
-const isRequired = (value) => (value === " " ? false : true);
-
-// this function return false if the lenght argument is not between the min and max argument
-const isBetween = (length, min, max) =>
-  length < min || length > max ? false : true;
 
 //confirm password field
 
 const checkConfirmPassword = () => {
-    let valid = false;
-    // check confirm password
-    const confirmPassword = confirmPasswordEl.value.trim();
-    const password = passwordEl.value.trim();
+  let valid = false;
+  // check confirm password
+  const confirmPassword = confirmPasswordEl.value.trim();
+  const password = passwordEl.value.trim();
 
-    if (!isRequired(confirmPassword)) {
-        showError(confirmPasswordEl, 'Please enter the password again');
-    } else if (password !== confirmPassword) {
-        showError(confirmPasswordEl, 'The password does not match');
-    } else {
-        showSuccess(confirmPasswordEl);
-        valid = true;
-    }
+  if (!isRequired(confirmPassword)) {
+    showError(confirmPasswordEl, "Please enter the password again");
+  } else if (password !== confirmPassword) {
+    showError(confirmPasswordEl, "The password does not match");
+  } else {
+    showSuccess(confirmPasswordEl);
+    valid = true;
+  }
 
-    return valid;
+  return valid;
 };
 
 // event delegation - by adding single event listener - this will prevent the lagging since there are alot of movement
@@ -219,4 +220,3 @@ form.addEventListener(
     }
   })
 );
-
